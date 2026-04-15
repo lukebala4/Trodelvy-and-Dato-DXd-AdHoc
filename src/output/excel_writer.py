@@ -173,13 +173,15 @@ def _write_analog_tab(ws, analog: DrugProgram):
                           alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
 
                 # Lag from FDA
-                lag_str = ""
+                lag_val = None
                 if fda_date and m.date_value and mtype != MilestoneType.FDA_APPROVAL:
                     from src.projection.lag_calculator import months_between
-                    lag = months_between(fda_date, m.date_value)
-                    lag_str = f"{lag:.1f}"
-                _set_cell(ws, row, 5, lag_str, font=FONT_BODY,
-                          alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
+                    lag_val = round(months_between(fda_date, m.date_value), 1)
+                cell = _set_cell(ws, row, 5, lag_val if lag_val is not None else "",
+                                 font=FONT_BODY, alignment=ALIGNMENT_CENTER,
+                                 border=THIN_BORDER)
+                if lag_val is not None:
+                    cell.number_format = '0.0'
 
                 _set_cell(ws, row, 6, m.confidence.value, font=FONT_BODY,
                           alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
@@ -231,28 +233,29 @@ def _write_derived_lags_tab(ws, all_lags):
                     elif "Trodelvy" in lag.analog_name:
                         trodelvy_lag = lag.lag_months
 
-            _set_cell(ws, row, 3,
-                      f"{enhertu_lag:.1f}" if enhertu_lag is not None else "N/A",
-                      font=FONT_BODY, fill=FILL_OPTIMISTIC,
-                      alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
-            _set_cell(ws, row, 4,
-                      f"{trodelvy_lag:.1f}" if trodelvy_lag is not None else "N/A",
-                      font=FONT_BODY, fill=FILL_CONSERVATIVE,
-                      alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
+            for col_idx, val, fill in [
+                (3, enhertu_lag, FILL_OPTIMISTIC),
+                (4, trodelvy_lag, FILL_CONSERVATIVE),
+            ]:
+                cell = _set_cell(ws, row, col_idx,
+                                 val if val is not None else "N/A",
+                                 font=FONT_BODY, fill=fill,
+                                 alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
+                if val is not None:
+                    cell.number_format = '0.0'
 
             opt, mid, cons = get_lag_range(all_lags, mtype, market)
-            _set_cell(ws, row, 5,
-                      f"{opt:.1f}" if opt is not None else "N/A",
-                      font=FONT_BODY, fill=FILL_OPTIMISTIC,
-                      alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
-            _set_cell(ws, row, 6,
-                      f"{mid:.1f}" if mid is not None else "N/A",
-                      font=FONT_BODY, fill=FILL_BASE,
-                      alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
-            _set_cell(ws, row, 7,
-                      f"{cons:.1f}" if cons is not None else "N/A",
-                      font=FONT_BODY, fill=FILL_CONSERVATIVE,
-                      alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
+            for col_idx, val, fill in [
+                (5, opt, FILL_OPTIMISTIC),
+                (6, mid, FILL_BASE),
+                (7, cons, FILL_CONSERVATIVE),
+            ]:
+                cell = _set_cell(ws, row, col_idx,
+                                 val if val is not None else "N/A",
+                                 font=FONT_BODY, fill=fill,
+                                 alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
+                if val is not None:
+                    cell.number_format = '0.0'
 
             notes = ""
             if enhertu_lag is None and trodelvy_lag is None:
