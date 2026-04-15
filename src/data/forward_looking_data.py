@@ -33,6 +33,7 @@ def build_trodelvy_ascent03() -> DrugProgram:
             date(2025, 6, 1), Confidence.MODERATE,
             "ClinicalTrials.gov NCT05382286 (estimated)",
             "ASCENT-03 estimated primary completion; verify on ClinicalTrials.gov",
+            source_url="https://clinicaltrials.gov/study/NCT05382286",
         ),
         Milestone(
             MilestoneType.TRIAL_READOUT, Market.US,
@@ -42,18 +43,19 @@ def build_trodelvy_ascent03() -> DrugProgram:
         ),
 
         # ── Regulatory (known anchors) ──
-        # Gilead targeting accelerated 1L launch by H2 2026
         Milestone(
             MilestoneType.FDA_SUBMISSION, Market.US,
             date(2026, 2, 1), Confidence.HIGH,
             "Gilead Q4 2025 Earnings guidance",
             "sBLA submission expected early 2026 based on ASCENT-03 data",
+            source_url="https://www.gilead.com/news-and-press/financial-information",
         ),
         Milestone(
             MilestoneType.FDA_APPROVAL, Market.US,
             date(2026, 9, 1), Confidence.HIGH,
             "Gilead guidance: accelerated 1L launch H2 2026",
             "Assumes standard sBLA review (~6-8 months) or Priority Review (~6 months)",
+            source_url="https://www.gilead.com/news-and-press/financial-information",
         ),
 
         # ── NCCN (already listed pre-approval) ──
@@ -62,12 +64,14 @@ def build_trodelvy_ascent03() -> DrugProgram:
             date(2026, 1, 15), Confidence.KNOWN,
             "NCCN Breast Cancer v1.2026",
             "Category 1 preferred 1L mTNBC BRCA-wt/PD-L1 CPS<10 — listed AHEAD of approval",
+            source_url="https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1419",
         ),
         Milestone(
             MilestoneType.NCCN_GUIDELINE, Market.CA,
             date(2026, 1, 15), Confidence.KNOWN,
             "NCCN Breast Cancer v1.2026",
             "NCCN also referenced in Canadian practice",
+            source_url="https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1419",
         ),
 
         # ── Commercial Launch (US) ──
@@ -76,6 +80,7 @@ def build_trodelvy_ascent03() -> DrugProgram:
             date(2026, 10, 1), Confidence.HIGH,
             "Gilead guidance: accelerated launch H2 2026",
             "Targeting rapid launch post-approval",
+            source_url="https://www.gilead.com/news-and-press/financial-information",
         ),
     ]
 
@@ -99,12 +104,14 @@ def build_trodelvy_ascent04() -> DrugProgram:
             date(2025, 6, 1), Confidence.MODERATE,
             "ClinicalTrials.gov NCT05382299 (estimated)",
             "ASCENT-04 estimated primary completion",
+            source_url="https://clinicaltrials.gov/study/NCT05382299",
         ),
         Milestone(
             MilestoneType.TRIAL_READOUT, Market.US,
             date(2025, 12, 1), Confidence.MODERATE,
-            "Estimated; full dataset published NEJM 21 Jan 2026",
+            "NEJM publication — 21 Jan 2026",
             "Full ASCENT-04 data published NEJM supporting Category 1 upgrade",
+            source_url="https://www.nejm.org/",
         ),
 
         # ── Regulatory ──
@@ -113,12 +120,14 @@ def build_trodelvy_ascent04() -> DrugProgram:
             date(2026, 3, 1), Confidence.HIGH,
             "Gilead guidance",
             "sBLA for Trodelvy + Keytruda combo in 1L CPS>=10",
+            source_url="https://www.gilead.com/news-and-press/financial-information",
         ),
         Milestone(
             MilestoneType.FDA_APPROVAL, Market.US,
             date(2026, 10, 1), Confidence.HIGH,
             "Projected based on Gilead H2 2026 launch target",
             "May come slightly after ASCENT-03 monotherapy approval",
+            source_url="https://www.gilead.com/news-and-press/financial-information",
         ),
 
         # ── NCCN (already listed) ──
@@ -127,11 +136,13 @@ def build_trodelvy_ascent04() -> DrugProgram:
             date(2026, 1, 15), Confidence.KNOWN,
             "NCCN Breast Cancer v1.2026",
             "Initially Category 2A preferred; upgraded to Category 1 in v2.2026",
+            source_url="https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1419",
         ),
         Milestone(
             MilestoneType.NCCN_GUIDELINE, Market.CA,
             date(2026, 1, 15), Confidence.KNOWN,
             "NCCN Breast Cancer v1.2026",
+            source_url="https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1419",
         ),
 
         # ── Commercial Launch (US) ──
@@ -140,6 +151,7 @@ def build_trodelvy_ascent04() -> DrugProgram:
             date(2026, 11, 1), Confidence.HIGH,
             "Gilead guidance: accelerated launch H2 2026",
             "Combo launch may follow monotherapy by ~1 month",
+            source_url="https://www.gilead.com/news-and-press/financial-information",
         ),
     ]
 
@@ -163,6 +175,7 @@ def build_dato_tb02() -> DrugProgram:
             date(2025, 3, 1), Confidence.MODERATE,
             "ClinicalTrials.gov NCT05104866 (estimated)",
             "TROPION-Breast02 primary completion estimate",
+            source_url="https://clinicaltrials.gov/study/NCT05104866",
         ),
         Milestone(
             MilestoneType.TRIAL_READOUT, Market.US,
@@ -177,12 +190,14 @@ def build_dato_tb02() -> DrugProgram:
             date(2025, 12, 1), Confidence.KNOWN,
             "Daiichi Sankyo announcement",
             "sBLA accepted by FDA with Priority Review",
+            source_url="https://www.daiichisankyo.com/media/press-releases/",
         ),
         Milestone(
             MilestoneType.FDA_APPROVAL, Market.US,
             date(2026, 6, 1), Confidence.HIGH,
             "PDUFA Q2 2026 under Priority Review",
             "Priority Review granted Feb 2026; PDUFA target date Q2 2026",
+            source_url="https://www.fda.gov/drugs/development-approval-process-drugs/drug-approvals-and-databases",
         ),
 
         # EMA submission
@@ -191,21 +206,25 @@ def build_dato_tb02() -> DrugProgram:
             date(2026, 9, 1), Confidence.MODERATE,
             "Daiichi Q3 FY2025 Earnings: EU approval projected Q3 2026",
             "Based on regulatory submission accepted Dec 2025",
+            source_url="https://www.daiichisankyo.com/investors/",
         ),
         Milestone(
             MilestoneType.EMA_APPROVAL, Market.FR,
             date(2026, 9, 1), Confidence.MODERATE,
             "Daiichi Q3 FY2025 Earnings",
+            source_url="https://www.daiichisankyo.com/investors/",
         ),
         Milestone(
             MilestoneType.EMA_APPROVAL, Market.IT,
             date(2026, 9, 1), Confidence.MODERATE,
             "Daiichi Q3 FY2025 Earnings",
+            source_url="https://www.daiichisankyo.com/investors/",
         ),
         Milestone(
             MilestoneType.EMA_APPROVAL, Market.ES,
             date(2026, 9, 1), Confidence.MODERATE,
             "Daiichi Q3 FY2025 Earnings",
+            source_url="https://www.daiichisankyo.com/investors/",
         ),
 
         # ── NCCN (already listed) ──
@@ -214,11 +233,13 @@ def build_dato_tb02() -> DrugProgram:
             date(2026, 1, 15), Confidence.KNOWN,
             "NCCN Breast Cancer v1.2026",
             "Category 2A other recommended; upgraded to Category 2A preferred in v2.2026",
+            source_url="https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1419",
         ),
         Milestone(
             MilestoneType.NCCN_GUIDELINE, Market.CA,
             date(2026, 1, 15), Confidence.KNOWN,
             "NCCN Breast Cancer v1.2026",
+            source_url="https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1419",
         ),
 
         # ── Commercial Launch (US) ──
@@ -227,6 +248,7 @@ def build_dato_tb02() -> DrugProgram:
             date(2026, 7, 1), Confidence.HIGH,
             "Projected post-PDUFA",
             "Expected rapid US launch following FDA approval",
+            source_url="https://www.daiichisankyo.com/media/press-releases/",
         ),
     ]
 
@@ -245,12 +267,12 @@ def build_dato_tb05() -> DrugProgram:
 
     milestones = [
         # ── Trial ──
-        # PCD ~18 months out from Apr 2026
         Milestone(
             MilestoneType.TRIAL_PCD, Market.US,
             date(2027, 10, 1), Confidence.LOW,
             "Estimated: '~18 months out' as of Apr 2026",
             "GAP: Exact PCD depends on enrollment pace; verify ClinicalTrials.gov",
+            source_url="https://clinicaltrials.gov/search?cond=TNBC&intr=datopotamab+deruxtecan&phase=3",
         ),
         Milestone(
             MilestoneType.TRIAL_READOUT, Market.US,
@@ -271,9 +293,6 @@ def build_dato_tb05() -> DrugProgram:
             "Projected: ~6-10 months post-submission",
             "Assumes standard or Priority Review",
         ),
-
-        # NCCN — not yet listed for CPS>=10
-        # Will be projected based on data readout timing
 
         # ── Commercial Launch (US) ──
         Milestone(

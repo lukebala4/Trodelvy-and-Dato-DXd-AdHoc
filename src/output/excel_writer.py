@@ -29,6 +29,7 @@ FONT_HEADER = Font(name="Calibri", size=11, bold=True, color="FFFFFF")
 FONT_SECTION = Font(name="Calibri", size=11, bold=True)
 FONT_BODY = Font(name="Calibri", size=10)
 FONT_NOTES = Font(name="Calibri", size=8, italic=True, color="666666")
+FONT_LINK = Font(name="Calibri", size=8, italic=True, color="0563C1", underline="single")
 FONT_TITLE = Font(name="Calibri", size=14, bold=True)
 
 ALIGNMENT_CENTER = Alignment(horizontal="center", vertical="center", wrap_text=True)
@@ -114,6 +115,20 @@ def _set_cell(ws, row, col, value, font=None, fill=None, alignment=None, border=
     return cell
 
 
+def _set_source_cell(ws, row, col, source_text, source_url=None, border=None):
+    """Write a source cell — as a clickable hyperlink if URL is available, plain text otherwise."""
+    cell = ws.cell(row=row, column=col, value=source_text)
+    cell.alignment = ALIGNMENT_LEFT
+    if border:
+        cell.border = border
+    if source_url:
+        cell.hyperlink = source_url
+        cell.font = FONT_LINK
+    else:
+        cell.font = FONT_NOTES
+    return cell
+
+
 def _write_analog_tab(ws, analog: DrugProgram):
     """Write a single analog's known milestone data as a milestone x geography matrix."""
     # Title
@@ -168,8 +183,9 @@ def _write_analog_tab(ws, analog: DrugProgram):
 
                 _set_cell(ws, row, 6, m.confidence.value, font=FONT_BODY,
                           alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
-                _set_cell(ws, row, 7, m.source, font=FONT_NOTES,
-                          alignment=ALIGNMENT_LEFT, border=THIN_BORDER)
+                _set_source_cell(ws, row, 7, m.source,
+                                 source_url=getattr(m, 'source_url', None),
+                                 border=THIN_BORDER)
                 _set_cell(ws, row, 8, m.notes, font=FONT_NOTES,
                           alignment=ALIGNMENT_LEFT, border=THIN_BORDER)
                 row += 1
@@ -312,8 +328,9 @@ def _write_projection_tab(ws, label: str, scenarios: dict[str, DrugProgram]):
                     conf_fill = CONFIDENCE_FILL.get(base_m.confidence)
                     _set_cell(ws, row, 7, base_m.confidence.value, font=FONT_BODY,
                               fill=conf_fill, alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
-                    _set_cell(ws, row, 8, base_m.source, font=FONT_NOTES,
-                              alignment=ALIGNMENT_LEFT, border=THIN_BORDER)
+                    _set_source_cell(ws, row, 8, base_m.source,
+                                     source_url=getattr(base_m, 'source_url', None),
+                                     border=THIN_BORDER)
                     _set_cell(ws, row, 9, base_m.notes, font=FONT_NOTES,
                               alignment=ALIGNMENT_LEFT, border=THIN_BORDER)
                 else:
