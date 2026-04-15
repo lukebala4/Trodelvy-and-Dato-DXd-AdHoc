@@ -90,8 +90,8 @@ Running the pipeline produces four deliverables:
 | Enrollment Implications | Corcept Phase 3 enrollment window analysis mapping SoC dates to geography recommendations |
 
 **Color coding:**
-- Green = Known/confirmed date
-- Light blue = High confidence
+- No background = Known/confirmed date
+- Green = High confidence
 - Yellow = Moderate confidence
 - Orange = Low confidence
 - Red = Data gap
@@ -198,17 +198,19 @@ The script prints a full SoC integration summary to the console after generating
 
 ---
 
-## Data Gaps Requiring Research
+## Data Gaps — Status
 
-7 data gaps have been identified that would improve projection confidence:
+Of the 7 original data gaps, **4 have been resolved** through primary research:
 
-1. **HAS (France)** — Exact decision dates for both analogs
-2. **AIFA (Italy)** — Exact GU publication dates for both analogs
-3. **AEMPS (Spain)** — Exact pricing/reimbursement dates for both analogs
-4. **G-BA (Germany)** — Exact AMNOG decision dates for both analogs
-5. **ESMO** — Exact guideline update dates for both analogs
-6. **TROPION-Breast05** — Exact PCD (currently estimated from "~18 months" guidance)
-7. **ASCENT-03/04** — Exact primary completion dates (verify on ClinicalTrials.gov)
+| Gap | Status | Resolution |
+|-----|--------|------------|
+| **G-BA (Germany)** | Resolved | Enhertu Beschluss 2 Feb 2023; Trodelvy Beschluss 19 May 2022. Sourced from g-ba.de |
+| **HAS (France)** | Resolved | Enhertu CT opinion 22 Feb 2023; Trodelvy CT opinion 6 Apr 2022. Sourced from has-sante.fr |
+| **ClinicalTrials.gov PCDs** | Resolved | ASCENT-03 PCD Jul 2028 (OS); ASCENT-04 PCD Feb 2027 (OS); TROPION-Breast05 PCD Jul 28, 2027. NCT numbers corrected. |
+| **TROPION-Breast05** | Resolved | NCT06103864, registered PCD Jul 28, 2027. Status: Recruiting |
+| **AIFA (Italy)** | Open | Exact GU publication dates for both analogs still need research |
+| **AEMPS (Spain)** | Open | Exact pricing/reimbursement dates for both analogs still need research |
+| **ESMO** | Open | Exact guideline update dates for both analogs are approximate |
 
 ---
 

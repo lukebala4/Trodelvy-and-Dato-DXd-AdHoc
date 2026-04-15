@@ -28,18 +28,20 @@ def build_trodelvy_ascent03() -> DrugProgram:
 
     milestones = [
         # ── Trial ──
+        # Note: NCT05382299 is ASCENT-03. Registered PCD Jul 2028 is for final OS analysis.
+        # PFS interim data already read out and supports regulatory submission.
         Milestone(
             MilestoneType.TRIAL_PCD, Market.US,
-            date(2025, 6, 1), Confidence.MODERATE,
-            "ClinicalTrials.gov NCT05382286 (estimated)",
-            "ASCENT-03 estimated primary completion; verify on ClinicalTrials.gov",
-            source_url="https://clinicaltrials.gov/study/NCT05382286",
+            date(2028, 7, 1), Confidence.KNOWN,
+            "ClinicalTrials.gov NCT05382299 — registered PCD",
+            "Registered PCD Jul 2028 is for final OS analysis. PFS interim already read out.",
+            source_url="https://clinicaltrials.gov/study/NCT05382299",
         ),
         Milestone(
             MilestoneType.TRIAL_READOUT, Market.US,
-            date(2025, 12, 1), Confidence.MODERATE,
-            "Estimated based on typical PCD-to-readout lag",
-            "Gilead targeting data for H2 2025 / H1 2026",
+            date(2025, 12, 1), Confidence.HIGH,
+            "Gilead presentations / regulatory submission",
+            "PFS data already presented; supports sBLA filing. Trial status: Active, Not Recruiting (623 enrolled).",
         ),
 
         # ── Regulatory (known anchors) ──
@@ -99,18 +101,20 @@ def build_trodelvy_ascent04() -> DrugProgram:
 
     milestones = [
         # ── Trial ──
+        # Note: NCT05382286 is ASCENT-04. Registered PCD Feb 2027 is for final OS analysis.
+        # PFS data already published in NEJM Jan 2026.
         Milestone(
             MilestoneType.TRIAL_PCD, Market.US,
-            date(2025, 6, 1), Confidence.MODERATE,
-            "ClinicalTrials.gov NCT05382299 (estimated)",
-            "ASCENT-04 estimated primary completion",
-            source_url="https://clinicaltrials.gov/study/NCT05382299",
+            date(2027, 2, 1), Confidence.KNOWN,
+            "ClinicalTrials.gov NCT05382286 — registered PCD",
+            "Registered PCD Feb 2027 is for final OS analysis. PFS data published NEJM 21 Jan 2026.",
+            source_url="https://clinicaltrials.gov/study/NCT05382286",
         ),
         Milestone(
             MilestoneType.TRIAL_READOUT, Market.US,
-            date(2025, 12, 1), Confidence.MODERATE,
+            date(2026, 1, 21), Confidence.KNOWN,
             "NEJM publication — 21 Jan 2026",
-            "Full ASCENT-04 data published NEJM supporting Category 1 upgrade",
+            "Full ASCENT-04 PFS dataset published; supported NCCN Category 1 upgrade. Trial: Active, Not Recruiting (443 enrolled).",
             source_url="https://www.nejm.org/",
         ),
 
@@ -269,10 +273,10 @@ def build_dato_tb05() -> DrugProgram:
         # ── Trial ──
         Milestone(
             MilestoneType.TRIAL_PCD, Market.US,
-            date(2027, 10, 1), Confidence.LOW,
-            "Estimated: '~18 months out' as of Apr 2026",
-            "GAP: Exact PCD depends on enrollment pace; verify ClinicalTrials.gov",
-            source_url="https://clinicaltrials.gov/search?cond=TNBC&intr=datopotamab+deruxtecan&phase=3",
+            date(2027, 7, 28), Confidence.KNOWN,
+            "ClinicalTrials.gov NCT06103864 — registered PCD",
+            "TROPION-Breast05. Status: Recruiting. Study completion: Sep 2030.",
+            source_url="https://clinicaltrials.gov/study/NCT06103864",
         ),
         Milestone(
             MilestoneType.TRIAL_READOUT, Market.US,

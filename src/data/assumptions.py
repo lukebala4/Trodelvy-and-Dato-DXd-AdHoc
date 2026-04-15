@@ -101,20 +101,20 @@ ASSUMPTIONS: list[Assumption] = [
     Assumption(
         id="T001",
         category="Trial",
-        description="TROPION-Breast05 (Dato-DXd CPS>=10) PCD estimated Oct 2027, based on '~18 months out' as of Apr 2026.",
+        description="TROPION-Breast05 (NCT06103864) registered PCD is Jul 28, 2027. Status: Recruiting. Study completion Sep 2030. Confirmed via ClinicalTrials.gov API.",
         impact="High",
-        status="Active",
+        status="Resolved",
         related_drug="Dato-DXd",
-        gap_flag=True,
+        gap_flag=False,
     ),
     Assumption(
         id="T002",
         category="Trial",
-        description="ASCENT-03 and ASCENT-04 primary completion dates estimated mid-2025; exact dates need verification on ClinicalTrials.gov.",
+        description="ASCENT-03 (NCT05382299) registered PCD Jul 2028; ASCENT-04 (NCT05382286) registered PCD Feb 2027. Both are final OS analysis dates — PFS data already presented. Note: original NCT numbers in data were swapped, now corrected. Confirmed via ClinicalTrials.gov API.",
         impact="Medium",
-        status="Active",
+        status="Resolved",
         related_drug="Trodelvy",
-        gap_flag=True,
+        gap_flag=False,
     ),
 
     # ── Guideline ──
@@ -188,10 +188,10 @@ ASSUMPTIONS: list[Assumption] = [
     Assumption(
         id="GAP001",
         category="Data Gap",
-        description="HAS (France) exact decision dates for both analogs need primary research from HAS public database.",
+        description="HAS (France) decision dates confirmed: Enhertu CT opinion 22 Feb 2023, Trodelvy CT opinion 6 Apr 2022. Sourced from has-sante.fr.",
         impact="Medium",
-        status="Active",
-        gap_flag=True,
+        status="Resolved",
+        gap_flag=False,
     ),
     Assumption(
         id="GAP002",
@@ -212,10 +212,10 @@ ASSUMPTIONS: list[Assumption] = [
     Assumption(
         id="GAP004",
         category="Data Gap",
-        description="G-BA exact AMNOG decision dates for both analogs need verification against G-BA public records.",
+        description="G-BA AMNOG dates confirmed: Enhertu Beschluss 2 Feb 2023 (procedure D-836), Trodelvy Beschluss 19 May 2022 (procedure D-750). Sourced from g-ba.de.",
         impact="Low",
-        status="Active",
-        gap_flag=True,
+        status="Resolved",
+        gap_flag=False,
     ),
     Assumption(
         id="GAP005",

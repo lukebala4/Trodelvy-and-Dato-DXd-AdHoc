@@ -14,11 +14,11 @@ from src.models import (
 
 
 # ── Color scheme ──
-FILL_KNOWN = PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")     # Green
-FILL_HIGH = PatternFill(start_color="D9E2F3", end_color="D9E2F3", fill_type="solid")      # Light blue
-FILL_MODERATE = PatternFill(start_color="FFF2CC", end_color="FFF2CC", fill_type="solid")   # Light yellow
-FILL_LOW = PatternFill(start_color="FCE4D6", end_color="FCE4D6", fill_type="solid")       # Light orange
-FILL_GAP = PatternFill(start_color="F4CCCC", end_color="F4CCCC", fill_type="solid")       # Light red
+FILL_KNOWN = None                                                                          # No background
+FILL_HIGH = PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")      # Green
+FILL_MODERATE = PatternFill(start_color="FFF2CC", end_color="FFF2CC", fill_type="solid")   # Yellow
+FILL_LOW = PatternFill(start_color="FCE4D6", end_color="FCE4D6", fill_type="solid")       # Orange
+FILL_GAP = PatternFill(start_color="F4CCCC", end_color="F4CCCC", fill_type="solid")       # Red
 FILL_HEADER = PatternFill(start_color="4472C4", end_color="4472C4", fill_type="solid")    # Blue header
 FILL_SECTION = PatternFill(start_color="D6DCE4", end_color="D6DCE4", fill_type="solid")   # Grey section
 FILL_OPTIMISTIC = PatternFill(start_color="E2EFDA", end_color="E2EFDA", fill_type="solid")
