@@ -49,15 +49,13 @@ def build_trodelvy_ascent03() -> DrugProgram:
             MilestoneType.FDA_SUBMISSION, Market.US,
             date(2026, 2, 1), Confidence.HIGH,
             "Gilead Q4 2025 Earnings guidance",
-            "sBLA submission expected early 2026 based on ASCENT-03 data",
-            source_url="https://www.gilead.com/news-and-press/financial-information",
+            "sBLA submission expected early 2026 based on ASCENT-03 data.",
         ),
         Milestone(
             MilestoneType.FDA_APPROVAL, Market.US,
             date(2026, 9, 1), Confidence.HIGH,
             "Gilead guidance: accelerated 1L launch H2 2026",
-            "Assumes standard sBLA review (~6-8 months) or Priority Review (~6 months)",
-            source_url="https://www.gilead.com/news-and-press/financial-information",
+            "Assumes standard sBLA review (~6-8 months) or Priority Review (~6 months).",
         ),
 
         # ── NCCN (already listed pre-approval) ──
@@ -65,15 +63,13 @@ def build_trodelvy_ascent03() -> DrugProgram:
             MilestoneType.NCCN_GUIDELINE, Market.US,
             date(2026, 1, 15), Confidence.KNOWN,
             "NCCN Breast Cancer v1.2026",
-            "Category 1 preferred 1L mTNBC BRCA-wt/PD-L1 CPS<10 — listed AHEAD of approval",
-            source_url="https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1419",
+            "Category 1 preferred 1L mTNBC BRCA-wt/PD-L1 CPS<10 — listed AHEAD of approval. NCCN requires login at nccn.org.",
         ),
         Milestone(
             MilestoneType.NCCN_GUIDELINE, Market.CA,
             date(2026, 1, 15), Confidence.KNOWN,
             "NCCN Breast Cancer v1.2026",
-            "NCCN also referenced in Canadian practice",
-            source_url="https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1419",
+            "NCCN also referenced in Canadian practice.",
         ),
 
         # ── Commercial Launch (US) ──
@@ -81,8 +77,7 @@ def build_trodelvy_ascent03() -> DrugProgram:
             MilestoneType.COMMERCIAL_LAUNCH, Market.US,
             date(2026, 10, 1), Confidence.HIGH,
             "Gilead guidance: accelerated launch H2 2026",
-            "Targeting rapid launch post-approval",
-            source_url="https://www.gilead.com/news-and-press/financial-information",
+            "Targeting rapid launch post-approval. Source: Gilead Q4 2025 Earnings call.",
         ),
     ]
 
@@ -115,7 +110,6 @@ def build_trodelvy_ascent04() -> DrugProgram:
             date(2026, 1, 21), Confidence.KNOWN,
             "NEJM publication — 21 Jan 2026",
             "Full ASCENT-04 PFS dataset published; supported NCCN Category 1 upgrade. Trial: Active, Not Recruiting (443 enrolled).",
-            source_url="https://www.nejm.org/",
         ),
 
         # ── Regulatory ──
@@ -123,15 +117,13 @@ def build_trodelvy_ascent04() -> DrugProgram:
             MilestoneType.FDA_SUBMISSION, Market.US,
             date(2026, 3, 1), Confidence.HIGH,
             "Gilead guidance",
-            "sBLA for Trodelvy + Keytruda combo in 1L CPS>=10",
-            source_url="https://www.gilead.com/news-and-press/financial-information",
+            "sBLA for Trodelvy + Keytruda combo in 1L CPS>=10.",
         ),
         Milestone(
             MilestoneType.FDA_APPROVAL, Market.US,
             date(2026, 10, 1), Confidence.HIGH,
             "Projected based on Gilead H2 2026 launch target",
-            "May come slightly after ASCENT-03 monotherapy approval",
-            source_url="https://www.gilead.com/news-and-press/financial-information",
+            "May come slightly after ASCENT-03 monotherapy approval.",
         ),
 
         # ── NCCN (already listed) ──
@@ -139,14 +131,12 @@ def build_trodelvy_ascent04() -> DrugProgram:
             MilestoneType.NCCN_GUIDELINE, Market.US,
             date(2026, 1, 15), Confidence.KNOWN,
             "NCCN Breast Cancer v1.2026",
-            "Initially Category 2A preferred; upgraded to Category 1 in v2.2026",
-            source_url="https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1419",
+            "Initially Category 2A preferred; upgraded to Category 1 in v2.2026. NCCN requires login at nccn.org.",
         ),
         Milestone(
             MilestoneType.NCCN_GUIDELINE, Market.CA,
             date(2026, 1, 15), Confidence.KNOWN,
             "NCCN Breast Cancer v1.2026",
-            source_url="https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1419",
         ),
 
         # ── Commercial Launch (US) ──
@@ -154,8 +144,7 @@ def build_trodelvy_ascent04() -> DrugProgram:
             MilestoneType.COMMERCIAL_LAUNCH, Market.US,
             date(2026, 11, 1), Confidence.HIGH,
             "Gilead guidance: accelerated launch H2 2026",
-            "Combo launch may follow monotherapy by ~1 month",
-            source_url="https://www.gilead.com/news-and-press/financial-information",
+            "Combo launch may follow monotherapy by ~1 month. Source: Gilead Q4 2025 Earnings call.",
         ),
     ]
 
@@ -177,31 +166,29 @@ def build_dato_tb02() -> DrugProgram:
         Milestone(
             MilestoneType.TRIAL_PCD, Market.US,
             date(2025, 3, 1), Confidence.MODERATE,
-            "ClinicalTrials.gov NCT05104866 (estimated)",
-            "TROPION-Breast02 primary completion estimate",
-            source_url="https://clinicaltrials.gov/study/NCT05104866",
+            "ClinicalTrials.gov NCT05374512 — TROPION-Breast02",
+            "TROPION-Breast02 primary completion estimate. Note: NCT05104866 is TROPION-Breast01 (HR+/HER2-), not Breast02.",
+            source_url="https://clinicaltrials.gov/study/NCT05374512",
         ),
         Milestone(
             MilestoneType.TRIAL_READOUT, Market.US,
             date(2025, 6, 1), Confidence.HIGH,
             "Data presented at major congress",
-            "Primary data supported sBLA submission",
+            "Primary data supported sBLA submission.",
         ),
 
         # ── Regulatory ──
         Milestone(
             MilestoneType.FDA_SUBMISSION, Market.US,
             date(2025, 12, 1), Confidence.KNOWN,
-            "Daiichi Sankyo announcement",
-            "sBLA accepted by FDA with Priority Review",
-            source_url="https://www.daiichisankyo.com/media/press-releases/",
+            "Daiichi Sankyo announcement — sBLA accepted with Priority Review",
+            "sBLA accepted by FDA with Priority Review. Source: Daiichi Sankyo press release, Dec 2025.",
         ),
         Milestone(
             MilestoneType.FDA_APPROVAL, Market.US,
             date(2026, 6, 1), Confidence.HIGH,
             "PDUFA Q2 2026 under Priority Review",
-            "Priority Review granted Feb 2026; PDUFA target date Q2 2026",
-            source_url="https://www.fda.gov/drugs/development-approval-process-drugs/drug-approvals-and-databases",
+            "Priority Review granted Feb 2026; PDUFA target date Q2 2026. Source: Daiichi Sankyo corporate communications.",
         ),
 
         # EMA submission
@@ -209,26 +196,22 @@ def build_dato_tb02() -> DrugProgram:
             MilestoneType.EMA_APPROVAL, Market.DE,
             date(2026, 9, 1), Confidence.MODERATE,
             "Daiichi Q3 FY2025 Earnings: EU approval projected Q3 2026",
-            "Based on regulatory submission accepted Dec 2025",
-            source_url="https://www.daiichisankyo.com/investors/",
+            "Based on regulatory submission accepted Dec 2025. Source: Daiichi Sankyo Q3 FY2025 Earnings presentation.",
         ),
         Milestone(
             MilestoneType.EMA_APPROVAL, Market.FR,
             date(2026, 9, 1), Confidence.MODERATE,
-            "Daiichi Q3 FY2025 Earnings",
-            source_url="https://www.daiichisankyo.com/investors/",
+            "Daiichi Q3 FY2025 Earnings: EU approval projected Q3 2026",
         ),
         Milestone(
             MilestoneType.EMA_APPROVAL, Market.IT,
             date(2026, 9, 1), Confidence.MODERATE,
-            "Daiichi Q3 FY2025 Earnings",
-            source_url="https://www.daiichisankyo.com/investors/",
+            "Daiichi Q3 FY2025 Earnings: EU approval projected Q3 2026",
         ),
         Milestone(
             MilestoneType.EMA_APPROVAL, Market.ES,
             date(2026, 9, 1), Confidence.MODERATE,
-            "Daiichi Q3 FY2025 Earnings",
-            source_url="https://www.daiichisankyo.com/investors/",
+            "Daiichi Q3 FY2025 Earnings: EU approval projected Q3 2026",
         ),
 
         # ── NCCN (already listed) ──
@@ -236,14 +219,12 @@ def build_dato_tb02() -> DrugProgram:
             MilestoneType.NCCN_GUIDELINE, Market.US,
             date(2026, 1, 15), Confidence.KNOWN,
             "NCCN Breast Cancer v1.2026",
-            "Category 2A other recommended; upgraded to Category 2A preferred in v2.2026",
-            source_url="https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1419",
+            "Category 2A other recommended; upgraded to Category 2A preferred in v2.2026. NCCN requires login at nccn.org.",
         ),
         Milestone(
             MilestoneType.NCCN_GUIDELINE, Market.CA,
             date(2026, 1, 15), Confidence.KNOWN,
             "NCCN Breast Cancer v1.2026",
-            source_url="https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1419",
         ),
 
         # ── Commercial Launch (US) ──
@@ -251,8 +232,7 @@ def build_dato_tb02() -> DrugProgram:
             MilestoneType.COMMERCIAL_LAUNCH, Market.US,
             date(2026, 7, 1), Confidence.HIGH,
             "Projected post-PDUFA",
-            "Expected rapid US launch following FDA approval",
-            source_url="https://www.daiichisankyo.com/media/press-releases/",
+            "Expected rapid US launch following FDA approval. Source: Daiichi Sankyo corporate guidance.",
         ),
     ]
 
@@ -282,7 +262,7 @@ def build_dato_tb05() -> DrugProgram:
             MilestoneType.TRIAL_READOUT, Market.US,
             date(2028, 3, 1), Confidence.LOW,
             "Estimated: ~5 months post-PCD for major congress presentation",
-            "Assumes data maturation + congress cycle",
+            "Assumes data maturation + congress cycle.",
         ),
 
         # ── Regulatory (all projected) ──
@@ -295,7 +275,7 @@ def build_dato_tb05() -> DrugProgram:
             MilestoneType.FDA_APPROVAL, Market.US,
             date(2029, 1, 1), Confidence.LOW,
             "Projected: ~6-10 months post-submission",
-            "Assumes standard or Priority Review",
+            "Assumes standard or Priority Review.",
         ),
 
         # ── Commercial Launch (US) ──

@@ -35,7 +35,7 @@ Built to inform **Corcept's Phase 3 inclusion criteria and trial start timing** 
 
 | Analog | Role | FDA Approval | Rationale |
 |--------|------|-------------|-----------|
-| **Enhertu** (2L+ HER2+ mBC) | Optimistic anchor | Aug 2022 | Practice-changing, strong HTA outcomes, fast uptake |
+| **Enhertu** (2L+ HER2+ mBC) | Optimistic anchor | May 2022 | Practice-changing, strong HTA outcomes, fast uptake |
 | **Trodelvy** (3L+ mTNBC) | Conservative anchor | Apr 2021 | Same TROP2 ADC class, more challenging HTA path |
 
 ---
@@ -181,19 +181,20 @@ The script prints a full SoC integration summary to the console after generating
 | Market | Trodelvy CPS<10 | Trodelvy CPS>=10 | Dato-DXd CPS<10 | Dato-DXd CPS>=10 |
 |--------|:--------------:|:----------------:|:---------------:|:----------------:|
 | **US** | Q4 2026 | Q4 2026 | Q3 2026 | Q1 2029 |
-| **UK** | Q2 2028 | Q2 2028 | Q1 2028 | Q3 2030 |
-| **Germany** | Q3 2027 | Q4 2027 | Q2 2027 | Q1 2030 |
-| **France** | Q4 2027 | Q1 2028 | Q3 2027 | Q2 2030 |
-| **Italy** | Q2 2028 | Q2 2028 | Q1 2028 | Q3 2030 |
-| **Spain** | Q3 2028 | Q3 2028 | Q2 2028 | Q4 2030 |
-| **Canada** | Q4 2027 | Q4 2027 | Q3 2027 | Q1 2030 |
+| **UK** | Q3 2027 | Q4 2027 | Q2 2027 | Q1 2030 |
+| **Germany** | Q1 2027 | Q1 2027 | Q3 2026 | Q2 2029 |
+| **France** | Q3 2027 | Q3 2027 | Q2 2027 | Q4 2029 |
+| **Italy** | Q4 2027 | Q1 2028 | Q3 2027 | Q2 2030 |
+| **Spain** | Q3 2027 | Q4 2027 | Q2 2027 | Q1 2030 |
+| **Canada** | Q4 2027 | Q1 2028 | Q3 2027 | Q2 2030 |
 
 ### Corcept Enrollment Implications
 
 - **US**: SoC integration at commercial launch (H2 2026) for both CPS<10 drugs. Narrow enrollment window.
-- **Germany**: Earliest EU5 market due to free-pricing access at EMA approval. SoC shift Q2-Q4 2027.
-- **France/Italy/Spain**: Longest reimbursement timelines (18-27 months post-FDA). **Widest pre-SoC enrollment windows** for Corcept's Phase 3.
-- **Dato-DXd CPS>=10 (TROPION-Breast05)**: Significantly behind — PCD ~Oct 2027, FDA ~2029. Extended enrollment window in all markets through at least 2029.
+- **Germany**: Earliest EU5 market due to free-pricing access at EMA approval. SoC shift Q3 2026-Q1 2027.
+- **UK**: NICE timelines significantly shorter than previously estimated (9-16 months post-FDA based on corrected analog data). SoC shift Q2-Q4 2027.
+- **France/Italy/Spain**: Longer reimbursement timelines (12-18 months post-FDA). **Widest pre-SoC enrollment windows** for Corcept's Phase 3 among EU5.
+- **Dato-DXd CPS>=10 (TROPION-Breast05)**: Significantly behind — PCD ~Jul 2027, FDA ~2029. Extended enrollment window in all markets through at least 2029.
 - **Implication**: Geographies with longer HTA timelines (Italy, Spain, France) offer the widest pre-SoC enrollment windows and should be prioritized for Corcept's Phase 3 site selection.
 
 ---
