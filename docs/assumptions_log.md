@@ -7,7 +7,7 @@ projections for Trodelvy and Dato-DXd in 1L mTNBC. Assumptions are categorized
 and tracked with impact levels and data gap flags.
 
 **Total assumptions:** 30
-**Data gaps requiring research:** 7
+**Data gaps requiring research:** 0
 
 ---
 
@@ -37,8 +37,8 @@ and tracked with impact levels and data gap flags.
 
 | ID | Description | Impact | Drug | Gap? |
 |:---|:-----------|:------:|:----:|:----:|
-| T001 | TROPION-Breast05 (Dato-DXd CPS>=10) PCD estimated Oct 2027, based on '~18 months out' as of Apr 2026. | High | Dato-DXd | **YES** |
-| T002 | ASCENT-03 and ASCENT-04 primary completion dates estimated mid-2025; exact dates need verification on ClinicalTrials.gov. | Medium | Trodelvy | **YES** |
+| T001 | TROPION-Breast05 (NCT06103864) registered PCD is Jul 28, 2027. Status: Recruiting. Study completion Sep 2030. Confirmed via ClinicalTrials.gov API. | High | Dato-DXd | No |
+| T002 | ASCENT-03 (NCT05382299) registered PCD Jul 2028; ASCENT-04 (NCT05382286) registered PCD Feb 2027. Both are final OS analysis dates — PFS data already presented. Note: original NCT numbers in data were swapped, now corrected. Confirmed via ClinicalTrials.gov API. | Medium | Trodelvy | No |
 
 ## Guideline
 
@@ -63,11 +63,11 @@ and tracked with impact levels and data gap flags.
 
 | ID | Description | Impact | Drug | Gap? |
 |:---|:-----------|:------:|:----:|:----:|
-| GAP001 | HAS (France) exact decision dates for both analogs need primary research from HAS public database. | Medium | General | **YES** |
-| GAP002 | AIFA (Italy) exact GU publication dates for both analogs need primary research. | Medium | General | **YES** |
-| GAP003 | AEMPS (Spain) exact pricing/reimbursement dates for both analogs need primary research. | Medium | General | **YES** |
-| GAP004 | G-BA exact AMNOG decision dates for both analogs need verification against G-BA public records. | Low | General | **YES** |
-| GAP005 | ESMO guideline exact update dates for both analogs are approximate; need verification against ESMO publications. | Low | General | **YES** |
+| GAP001 | HAS (France) decision dates confirmed: Enhertu CT opinion 22 Feb 2023, Trodelvy CT opinion 6 Apr 2022. Sourced from has-sante.fr. | Medium | General | No |
+| GAP002 | AIFA (Italy) dates confirmed: Enhertu GU n.153 on 3 Jul 2023 (~5 months post-EMA); Trodelvy GU n.185 on 9 Aug 2022 (~9 months post-EMA). Sourced from gazzettaufficiale.it and aifa.gov.it. | Medium | General | No |
+| GAP003 | AEMPS (Spain) dates confirmed: Both Enhertu and Trodelvy approved by CIPM on same date, 28 Oct 2022. Sourced from Spanish Ministry of Health press release. | Medium | General | No |
+| GAP004 | G-BA AMNOG dates confirmed: Enhertu Beschluss 2 Feb 2023 (procedure D-836), Trodelvy Beschluss 19 May 2022 (procedure D-750). Sourced from g-ba.de. | Low | General | No |
+| GAP005 | ESMO guideline dates confirmed: Both Enhertu and Trodelvy included in ESMO mBC CPG published 19 Oct 2021 (Annals of Oncology). This predates Enhertu FDA full approval (Aug 2022) — the guideline referenced DESTINY-Breast03 data pre-approval. | Low | General | No |
 
 ## Strategic
 
@@ -75,18 +75,3 @@ and tracked with impact levels and data gap flags.
 |:---|:-----------|:------:|:----:|:----:|
 | S001 | Trodelvy's Category 1 preferred NCCN status and broader 1L population coverage (CPS<10 AND CPS>=10) gives it a competitive advantage over Dato-DXd at launch. | High | General | No |
 | S002 | Both ADCs have NCCN recommendations ahead of regulatory approval — unusual precedent that may accelerate SoC integration in US. | High | General | No |
-
----
-
-## Priority Data Gaps
-
-The following gaps should be filled through primary research to improve
-projection confidence:
-
-- **T001**: TROPION-Breast05 (Dato-DXd CPS>=10) PCD estimated Oct 2027, based on '~18 months out' as of Apr 2026.
-- **T002**: ASCENT-03 and ASCENT-04 primary completion dates estimated mid-2025; exact dates need verification on ClinicalTrials.gov.
-- **GAP001**: HAS (France) exact decision dates for both analogs need primary research from HAS public database.
-- **GAP002**: AIFA (Italy) exact GU publication dates for both analogs need primary research.
-- **GAP003**: AEMPS (Spain) exact pricing/reimbursement dates for both analogs need primary research.
-- **GAP004**: G-BA exact AMNOG decision dates for both analogs need verification against G-BA public records.
-- **GAP005**: ESMO guideline exact update dates for both analogs are approximate; need verification against ESMO publications.
