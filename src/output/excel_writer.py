@@ -28,7 +28,7 @@ FILL_CONSERVATIVE = PatternFill(start_color="FCE4D6", end_color="FCE4D6", fill_t
 FONT_HEADER = Font(name="Calibri", size=11, bold=True, color="FFFFFF")
 FONT_SECTION = Font(name="Calibri", size=11, bold=True)
 FONT_BODY = Font(name="Calibri", size=10)
-FONT_NOTES = Font(name="Calibri", size=8, italic=True, color="666666")
+FONT_NOTES = Font(name="Calibri", size=8, italic=True, color="000000")
 FONT_LINK = Font(name="Calibri", size=8, italic=True, color="0563C1", underline="single")
 FONT_TITLE = Font(name="Calibri", size=14, bold=True)
 
@@ -92,7 +92,7 @@ MILESTONE_PRIMARY_MARKET = {
 def _format_date(d: Optional[date]) -> str:
     if d is None:
         return "TBD"
-    return d.strftime("%b %Y")
+    return d.strftime("%-d %b %Y")
 
 
 def _format_date_quarter(d: Optional[date]) -> str:
@@ -191,9 +191,13 @@ def _write_analog_tab(ws, analog: DrugProgram):
                 row += 1
 
     # Column widths
-    widths = [14, 28, 12, 12, 18, 12, 35, 45]
+    widths = [14, 28, 12, 14, 18, 12, 35, 45]
     for i, w in enumerate(widths, 1):
         ws.column_dimensions[get_column_letter(i)].width = w
+
+    # Row heights — ensure title and header rows aren't clipped
+    ws.row_dimensions[1].height = 24
+    ws.row_dimensions[4].height = 30
 
 
 def _write_derived_lags_tab(ws, all_lags):
@@ -262,6 +266,10 @@ def _write_derived_lags_tab(ws, all_lags):
     widths = [28, 12, 20, 22, 12, 12, 14, 40]
     for i, w in enumerate(widths, 1):
         ws.column_dimensions[get_column_letter(i)].width = w
+
+    # Row heights
+    ws.row_dimensions[1].height = 24
+    ws.row_dimensions[3].height = 30
 
 
 def _write_projection_tab(ws, label: str, scenarios: dict[str, DrugProgram]):
@@ -344,6 +352,10 @@ def _write_projection_tab(ws, label: str, scenarios: dict[str, DrugProgram]):
     for i, w in enumerate(widths, 1):
         ws.column_dimensions[get_column_letter(i)].width = w
 
+    # Row heights
+    ws.row_dimensions[1].height = 24
+    ws.row_dimensions[4].height = 30
+
 
 def _write_assumptions_tab(ws, assumptions: list[Assumption]):
     """Write the assumptions and data gaps log."""
@@ -380,6 +392,10 @@ def _write_assumptions_tab(ws, assumptions: list[Assumption]):
     widths = [8, 16, 70, 10, 10, 14, 10, 30]
     for i, w in enumerate(widths, 1):
         ws.column_dimensions[get_column_letter(i)].width = w
+
+    # Row heights
+    ws.row_dimensions[1].height = 24
+    ws.row_dimensions[3].height = 30
 
 
 def _write_enrollment_implications_tab(
@@ -485,6 +501,10 @@ def _write_enrollment_implications_tab(
     ws.column_dimensions["B"].width = 24
     for c in range(3, col + 1):
         ws.column_dimensions[get_column_letter(c)].width = 22
+
+    # Row heights
+    ws.row_dimensions[1].height = 24
+    ws.row_dimensions[4].height = 30
 
 
 def create_workbook(
