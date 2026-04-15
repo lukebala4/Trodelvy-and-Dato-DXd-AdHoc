@@ -7,7 +7,7 @@ projections for Trodelvy and Dato-DXd in 1L mTNBC. Assumptions are categorized
 and tracked with impact levels and data gap flags.
 
 **Total assumptions:** 30
-**Data gaps requiring research:** 3
+**Data gaps requiring research:** 0
 
 ---
 
@@ -64,10 +64,10 @@ and tracked with impact levels and data gap flags.
 | ID | Description | Impact | Drug | Gap? |
 |:---|:-----------|:------:|:----:|:----:|
 | GAP001 | HAS (France) decision dates confirmed: Enhertu CT opinion 22 Feb 2023, Trodelvy CT opinion 6 Apr 2022. Sourced from has-sante.fr. | Medium | General | No |
-| GAP002 | AIFA (Italy) exact GU publication dates for both analogs need primary research. | Medium | General | **YES** |
-| GAP003 | AEMPS (Spain) exact pricing/reimbursement dates for both analogs need primary research. | Medium | General | **YES** |
+| GAP002 | AIFA (Italy) dates confirmed: Enhertu GU n.153 on 3 Jul 2023 (~5 months post-EMA); Trodelvy GU n.185 on 9 Aug 2022 (~9 months post-EMA). Sourced from gazzettaufficiale.it and aifa.gov.it. | Medium | General | No |
+| GAP003 | AEMPS (Spain) dates confirmed: Both Enhertu and Trodelvy approved by CIPM on same date, 28 Oct 2022. Sourced from Spanish Ministry of Health press release. | Medium | General | No |
 | GAP004 | G-BA AMNOG dates confirmed: Enhertu Beschluss 2 Feb 2023 (procedure D-836), Trodelvy Beschluss 19 May 2022 (procedure D-750). Sourced from g-ba.de. | Low | General | No |
-| GAP005 | ESMO guideline exact update dates for both analogs are approximate; need verification against ESMO publications. | Low | General | **YES** |
+| GAP005 | ESMO guideline dates confirmed: Both Enhertu and Trodelvy included in ESMO mBC CPG published 19 Oct 2021 (Annals of Oncology). This predates Enhertu FDA full approval (Aug 2022) — the guideline referenced DESTINY-Breast03 data pre-approval. | Low | General | No |
 
 ## Strategic
 
@@ -75,14 +75,3 @@ and tracked with impact levels and data gap flags.
 |:---|:-----------|:------:|:----:|:----:|
 | S001 | Trodelvy's Category 1 preferred NCCN status and broader 1L population coverage (CPS<10 AND CPS>=10) gives it a competitive advantage over Dato-DXd at launch. | High | General | No |
 | S002 | Both ADCs have NCCN recommendations ahead of regulatory approval — unusual precedent that may accelerate SoC integration in US. | High | General | No |
-
----
-
-## Priority Data Gaps
-
-The following gaps should be filled through primary research to improve
-projection confidence:
-
-- **GAP002**: AIFA (Italy) exact GU publication dates for both analogs need primary research.
-- **GAP003**: AEMPS (Spain) exact pricing/reimbursement dates for both analogs need primary research.
-- **GAP005**: ESMO guideline exact update dates for both analogs are approximate; need verification against ESMO publications.

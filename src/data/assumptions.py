@@ -196,18 +196,18 @@ ASSUMPTIONS: list[Assumption] = [
     Assumption(
         id="GAP002",
         category="Data Gap",
-        description="AIFA (Italy) exact GU publication dates for both analogs need primary research.",
+        description="AIFA (Italy) dates confirmed: Enhertu GU n.153 on 3 Jul 2023 (~5 months post-EMA); Trodelvy GU n.185 on 9 Aug 2022 (~9 months post-EMA). Sourced from gazzettaufficiale.it and aifa.gov.it.",
         impact="Medium",
-        status="Active",
-        gap_flag=True,
+        status="Resolved",
+        gap_flag=False,
     ),
     Assumption(
         id="GAP003",
         category="Data Gap",
-        description="AEMPS (Spain) exact pricing/reimbursement dates for both analogs need primary research.",
+        description="AEMPS (Spain) dates confirmed: Both Enhertu and Trodelvy approved by CIPM on same date, 28 Oct 2022. Sourced from Spanish Ministry of Health press release.",
         impact="Medium",
-        status="Active",
-        gap_flag=True,
+        status="Resolved",
+        gap_flag=False,
     ),
     Assumption(
         id="GAP004",
@@ -220,10 +220,10 @@ ASSUMPTIONS: list[Assumption] = [
     Assumption(
         id="GAP005",
         category="Data Gap",
-        description="ESMO guideline exact update dates for both analogs are approximate; need verification against ESMO publications.",
+        description="ESMO guideline dates confirmed: Both Enhertu and Trodelvy included in ESMO mBC CPG published 19 Oct 2021 (Annals of Oncology). This predates Enhertu FDA full approval (Aug 2022) — the guideline referenced DESTINY-Breast03 data pre-approval.",
         impact="Low",
-        status="Active",
-        gap_flag=True,
+        status="Resolved",
+        gap_flag=False,
     ),
 
     # ── Competitive / Strategic ──

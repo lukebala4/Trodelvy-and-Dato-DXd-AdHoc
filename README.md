@@ -86,7 +86,7 @@ Running the pipeline produces four deliverables:
 | Trodelvy 1L CPS>=10 (ASCENT-04) | Same for the Trodelvy + Keytruda combination |
 | Dato-DXd 1L CPS<10 (TB02) | Forward projections for Dato-DXd monotherapy |
 | Dato-DXd 1L CPS>=10 (TB05) | Forward projections — significantly later timeline (PCD ~2027) |
-| Assumptions & Gaps | All 30 assumptions with impact levels and 7 flagged data gaps requiring primary research |
+| Assumptions & Gaps | All 30 assumptions with impact levels — all 7 original data gaps resolved through primary research |
 | Enrollment Implications | Corcept Phase 3 enrollment window analysis mapping SoC dates to geography recommendations |
 
 **Color coding:**
@@ -200,17 +200,17 @@ The script prints a full SoC integration summary to the console after generating
 
 ## Data Gaps — Status
 
-Of the 7 original data gaps, **4 have been resolved** through primary research:
+All **7 original data gaps have been resolved** through primary research:
 
 | Gap | Status | Resolution |
 |-----|--------|------------|
-| **G-BA (Germany)** | Resolved | Enhertu Beschluss 2 Feb 2023; Trodelvy Beschluss 19 May 2022. Sourced from g-ba.de |
+| **G-BA (Germany)** | Resolved | Enhertu Beschluss 2 Feb 2023 (D-836); Trodelvy Beschluss 19 May 2022 (D-750). Sourced from g-ba.de |
 | **HAS (France)** | Resolved | Enhertu CT opinion 22 Feb 2023; Trodelvy CT opinion 6 Apr 2022. Sourced from has-sante.fr |
 | **ClinicalTrials.gov PCDs** | Resolved | ASCENT-03 PCD Jul 2028 (OS); ASCENT-04 PCD Feb 2027 (OS); TROPION-Breast05 PCD Jul 28, 2027. NCT numbers corrected. |
 | **TROPION-Breast05** | Resolved | NCT06103864, registered PCD Jul 28, 2027. Status: Recruiting |
-| **AIFA (Italy)** | Open | Exact GU publication dates for both analogs still need research |
-| **AEMPS (Spain)** | Open | Exact pricing/reimbursement dates for both analogs still need research |
-| **ESMO** | Open | Exact guideline update dates for both analogs are approximate |
+| **AIFA (Italy)** | Resolved | Enhertu GU n.153 on 3 Jul 2023 (~5 months post-EMA); Trodelvy GU n.185 on 9 Aug 2022 (~9 months post-EMA). Sourced from gazzettaufficiale.it |
+| **AEMPS (Spain)** | Resolved | Both Enhertu and Trodelvy approved by CIPM on 28 Oct 2022 (same session). Sourced from Spanish Ministry of Health |
+| **ESMO** | Resolved | Both drugs included in ESMO mBC CPG published 19 Oct 2021 (Annals of Oncology). Predates Enhertu FDA full approval. |
 
 ---
 
