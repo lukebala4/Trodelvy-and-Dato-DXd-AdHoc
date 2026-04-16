@@ -14,11 +14,11 @@ from src.models import (
 
 
 # ── Color scheme ──
-FILL_KNOWN = PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")     # Green
-FILL_HIGH = PatternFill(start_color="D9E2F3", end_color="D9E2F3", fill_type="solid")      # Light blue
-FILL_MODERATE = PatternFill(start_color="FFF2CC", end_color="FFF2CC", fill_type="solid")   # Light yellow
-FILL_LOW = PatternFill(start_color="FCE4D6", end_color="FCE4D6", fill_type="solid")       # Light orange
-FILL_GAP = PatternFill(start_color="F4CCCC", end_color="F4CCCC", fill_type="solid")       # Light red
+FILL_KNOWN = None                                                                          # No background
+FILL_HIGH = PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")      # Green
+FILL_MODERATE = PatternFill(start_color="FFF2CC", end_color="FFF2CC", fill_type="solid")   # Yellow
+FILL_LOW = PatternFill(start_color="FCE4D6", end_color="FCE4D6", fill_type="solid")       # Orange
+FILL_GAP = PatternFill(start_color="F4CCCC", end_color="F4CCCC", fill_type="solid")       # Red
 FILL_HEADER = PatternFill(start_color="4472C4", end_color="4472C4", fill_type="solid")    # Blue header
 FILL_SECTION = PatternFill(start_color="D6DCE4", end_color="D6DCE4", fill_type="solid")   # Grey section
 FILL_OPTIMISTIC = PatternFill(start_color="E2EFDA", end_color="E2EFDA", fill_type="solid")
@@ -28,7 +28,8 @@ FILL_CONSERVATIVE = PatternFill(start_color="FCE4D6", end_color="FCE4D6", fill_t
 FONT_HEADER = Font(name="Calibri", size=11, bold=True, color="FFFFFF")
 FONT_SECTION = Font(name="Calibri", size=11, bold=True)
 FONT_BODY = Font(name="Calibri", size=10)
-FONT_NOTES = Font(name="Calibri", size=8, italic=True, color="666666")
+FONT_NOTES = Font(name="Calibri", size=8, italic=True, color="000000")
+FONT_LINK = Font(name="Calibri", size=8, italic=True, color="0563C1", underline="single")
 FONT_TITLE = Font(name="Calibri", size=14, bold=True)
 
 ALIGNMENT_CENTER = Alignment(horizontal="center", vertical="center", wrap_text=True)
@@ -91,7 +92,7 @@ MILESTONE_PRIMARY_MARKET = {
 def _format_date(d: Optional[date]) -> str:
     if d is None:
         return "TBD"
-    return d.strftime("%b %Y")
+    return d.strftime("%-d %b %Y")
 
 
 def _format_date_quarter(d: Optional[date]) -> str:
@@ -111,6 +112,20 @@ def _set_cell(ws, row, col, value, font=None, fill=None, alignment=None, border=
         cell.alignment = alignment
     if border:
         cell.border = border
+    return cell
+
+
+def _set_source_cell(ws, row, col, source_text, source_url=None, border=None):
+    """Write a source cell — as a clickable hyperlink if URL is available, plain text otherwise."""
+    cell = ws.cell(row=row, column=col, value=source_text)
+    cell.alignment = ALIGNMENT_LEFT
+    if border:
+        cell.border = border
+    if source_url:
+        cell.hyperlink = source_url
+        cell.font = FONT_LINK
+    else:
+        cell.font = FONT_NOTES
     return cell
 
 
@@ -158,26 +173,33 @@ def _write_analog_tab(ws, analog: DrugProgram):
                           alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
 
                 # Lag from FDA
-                lag_str = ""
+                lag_val = None
                 if fda_date and m.date_value and mtype != MilestoneType.FDA_APPROVAL:
                     from src.projection.lag_calculator import months_between
-                    lag = months_between(fda_date, m.date_value)
-                    lag_str = f"{lag:.1f}"
-                _set_cell(ws, row, 5, lag_str, font=FONT_BODY,
-                          alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
+                    lag_val = round(months_between(fda_date, m.date_value), 1)
+                cell = _set_cell(ws, row, 5, lag_val if lag_val is not None else "",
+                                 font=FONT_BODY, alignment=ALIGNMENT_CENTER,
+                                 border=THIN_BORDER)
+                if lag_val is not None:
+                    cell.number_format = '0.0'
 
                 _set_cell(ws, row, 6, m.confidence.value, font=FONT_BODY,
                           alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
-                _set_cell(ws, row, 7, m.source, font=FONT_NOTES,
-                          alignment=ALIGNMENT_LEFT, border=THIN_BORDER)
+                _set_source_cell(ws, row, 7, m.source,
+                                 source_url=getattr(m, 'source_url', None),
+                                 border=THIN_BORDER)
                 _set_cell(ws, row, 8, m.notes, font=FONT_NOTES,
                           alignment=ALIGNMENT_LEFT, border=THIN_BORDER)
                 row += 1
 
     # Column widths
-    widths = [14, 28, 12, 12, 18, 12, 35, 45]
+    widths = [14, 28, 12, 14, 18, 12, 35, 45]
     for i, w in enumerate(widths, 1):
         ws.column_dimensions[get_column_letter(i)].width = w
+
+    # Row heights — ensure title and header rows aren't clipped
+    ws.row_dimensions[1].height = 24
+    ws.row_dimensions[4].height = 30
 
 
 def _write_derived_lags_tab(ws, all_lags):
@@ -211,28 +233,29 @@ def _write_derived_lags_tab(ws, all_lags):
                     elif "Trodelvy" in lag.analog_name:
                         trodelvy_lag = lag.lag_months
 
-            _set_cell(ws, row, 3,
-                      f"{enhertu_lag:.1f}" if enhertu_lag is not None else "N/A",
-                      font=FONT_BODY, fill=FILL_OPTIMISTIC,
-                      alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
-            _set_cell(ws, row, 4,
-                      f"{trodelvy_lag:.1f}" if trodelvy_lag is not None else "N/A",
-                      font=FONT_BODY, fill=FILL_CONSERVATIVE,
-                      alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
+            for col_idx, val, fill in [
+                (3, enhertu_lag, FILL_OPTIMISTIC),
+                (4, trodelvy_lag, FILL_CONSERVATIVE),
+            ]:
+                cell = _set_cell(ws, row, col_idx,
+                                 val if val is not None else "N/A",
+                                 font=FONT_BODY, fill=fill,
+                                 alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
+                if val is not None:
+                    cell.number_format = '0.0'
 
             opt, mid, cons = get_lag_range(all_lags, mtype, market)
-            _set_cell(ws, row, 5,
-                      f"{opt:.1f}" if opt is not None else "N/A",
-                      font=FONT_BODY, fill=FILL_OPTIMISTIC,
-                      alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
-            _set_cell(ws, row, 6,
-                      f"{mid:.1f}" if mid is not None else "N/A",
-                      font=FONT_BODY, fill=FILL_BASE,
-                      alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
-            _set_cell(ws, row, 7,
-                      f"{cons:.1f}" if cons is not None else "N/A",
-                      font=FONT_BODY, fill=FILL_CONSERVATIVE,
-                      alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
+            for col_idx, val, fill in [
+                (5, opt, FILL_OPTIMISTIC),
+                (6, mid, FILL_BASE),
+                (7, cons, FILL_CONSERVATIVE),
+            ]:
+                cell = _set_cell(ws, row, col_idx,
+                                 val if val is not None else "N/A",
+                                 font=FONT_BODY, fill=fill,
+                                 alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
+                if val is not None:
+                    cell.number_format = '0.0'
 
             notes = ""
             if enhertu_lag is None and trodelvy_lag is None:
@@ -246,6 +269,10 @@ def _write_derived_lags_tab(ws, all_lags):
     widths = [28, 12, 20, 22, 12, 12, 14, 40]
     for i, w in enumerate(widths, 1):
         ws.column_dimensions[get_column_letter(i)].width = w
+
+    # Row heights
+    ws.row_dimensions[1].height = 24
+    ws.row_dimensions[3].height = 30
 
 
 def _write_projection_tab(ws, label: str, scenarios: dict[str, DrugProgram]):
@@ -312,8 +339,9 @@ def _write_projection_tab(ws, label: str, scenarios: dict[str, DrugProgram]):
                     conf_fill = CONFIDENCE_FILL.get(base_m.confidence)
                     _set_cell(ws, row, 7, base_m.confidence.value, font=FONT_BODY,
                               fill=conf_fill, alignment=ALIGNMENT_CENTER, border=THIN_BORDER)
-                    _set_cell(ws, row, 8, base_m.source, font=FONT_NOTES,
-                              alignment=ALIGNMENT_LEFT, border=THIN_BORDER)
+                    _set_source_cell(ws, row, 8, base_m.source,
+                                     source_url=getattr(base_m, 'source_url', None),
+                                     border=THIN_BORDER)
                     _set_cell(ws, row, 9, base_m.notes, font=FONT_NOTES,
                               alignment=ALIGNMENT_LEFT, border=THIN_BORDER)
                 else:
@@ -326,6 +354,10 @@ def _write_projection_tab(ws, label: str, scenarios: dict[str, DrugProgram]):
     widths = [14, 28, 12, 14, 14, 14, 12, 40, 45]
     for i, w in enumerate(widths, 1):
         ws.column_dimensions[get_column_letter(i)].width = w
+
+    # Row heights
+    ws.row_dimensions[1].height = 24
+    ws.row_dimensions[4].height = 30
 
 
 def _write_assumptions_tab(ws, assumptions: list[Assumption]):
@@ -363,6 +395,10 @@ def _write_assumptions_tab(ws, assumptions: list[Assumption]):
     widths = [8, 16, 70, 10, 10, 14, 10, 30]
     for i, w in enumerate(widths, 1):
         ws.column_dimensions[get_column_letter(i)].width = w
+
+    # Row heights
+    ws.row_dimensions[1].height = 24
+    ws.row_dimensions[3].height = 30
 
 
 def _write_enrollment_implications_tab(
@@ -468,6 +504,10 @@ def _write_enrollment_implications_tab(
     ws.column_dimensions["B"].width = 24
     for c in range(3, col + 1):
         ws.column_dimensions[get_column_letter(c)].width = 22
+
+    # Row heights
+    ws.row_dimensions[1].height = 24
+    ws.row_dimensions[4].height = 30
 
 
 def create_workbook(

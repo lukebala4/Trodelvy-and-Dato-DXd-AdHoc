@@ -97,6 +97,7 @@ class Milestone:
     confidence: Confidence
     source: str
     notes: str = ""
+    source_url: Optional[str] = None
     is_projected: bool = False
 
 
