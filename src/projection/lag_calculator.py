@@ -84,10 +84,10 @@ def get_lag_range(
     if not matching:
         return (None, None, None)
 
-    lag_values = [lag.lag_months for lag in matching]
+    lag_values = [float(lag.lag_months) for lag in matching]
     optimistic = min(lag_values)
     conservative = max(lag_values)
-    mid = round(sum(lag_values) / len(lag_values), 1)
+    mid = float(round(sum(lag_values) / len(lag_values), 1))
 
     return (optimistic, mid, conservative)
 
